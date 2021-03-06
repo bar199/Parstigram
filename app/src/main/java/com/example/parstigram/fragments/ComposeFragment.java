@@ -184,19 +184,4 @@ public class ComposeFragment extends Fragment {
             ivPostImage.setImageResource(0);
         });
     }
-
-    private void queryPosts() {
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.include(Post.KEY_USER);
-        query.findInBackground((posts, e) -> {
-            if (e != null) {
-                Log.e(TAG, "Issue with getting posts", e);
-                return;
-            }
-
-            for (Post post : posts) {
-                Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
-            }
-        });
-    }
 }

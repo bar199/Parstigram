@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

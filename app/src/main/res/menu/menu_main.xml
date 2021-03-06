@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minHeight="?attr/actionBarSize"
+    android:minWidth="?attr/actionBarSize" >
+
+    <item
+        android:id="@+id/camera"
+        android:icon="@drawable/camera_shadow_fill"
+        android:title="Camera"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/logo"
+        android:icon="@drawable/nux_dayone_landing_logo"
+        android:title="Instagram"
+        android:height="20dp"
+        android:gravity="center_horizontal"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/directMessages"
+        android:icon="@drawable/ic_selector_direct"
+        android:title="Direct Messages"
+        android:iconTint="@color/white"
+        app:showAsAction="always" />
+
+</menu>

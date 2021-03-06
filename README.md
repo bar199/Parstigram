@@ -4,7 +4,7 @@
 
 ## Parstigram Part 2
 
-Time spent: **6** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -16,15 +16,19 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] User sees app icon in home screen and styled bottom navigation view
-- [ ] Style the feed to look like the real Instagram feed.
+- [ ] User sees app icon in home screen
+- [x] User see styled bottom navigation view
+- [x] Style the feed to look like the real Instagram feed.
 - [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
-- [ ] Show the username and creation time for each post.
+- [x] Show the username for each post.
+- [ ] Show the creation time for each post.
 - [ ] User can tap a post to view post details, including timestamp and caption.
 - [ ] User Profiles
+
       - [ ] Allow the logged in user to add a profile photo
       - [ ] Display the profile photo with each post
       - [ ] Tapping on a post's username or profile photo goes to that user's profile page and shows a grid view of the user's posts 
+
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [ ] User can like a post and see number of likes for each post in the post details screen.
 
@@ -37,12 +41,14 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <img src='walkthrough2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='walkthrough_compose.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with [GIPHY](https://giphy.com/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- Couldn't figure out how to add the app to the homescreen.
+- Couldn't make 'Like' icon change color in checked/unchecked states.
 
 ## Open-source libraries used
 

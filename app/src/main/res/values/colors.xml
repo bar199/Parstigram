@@ -10,5 +10,10 @@
 
     <color name="bottom_nav_bar_top_border">#303030</color>
     <color name="secondary_text">#BFBFBF</color>
-    <color name="login_button_background">#1D84D6</color>
+    <color name="et_border">#353535</color>
+    <color name="btn_login">#2196F3</color>
+    <color name="btn_signup">#09BF03</color>
+    <color name="toast_text">#FFFFFF</color>
+    <color name="toast_background">#D8F44336</color>
+    <color name="heart">#E91E63</color>
 </resources>

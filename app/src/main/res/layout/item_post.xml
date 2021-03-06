@@ -5,28 +5,123 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
 
-    <TextView
-        android:id="@+id/tvUsername"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
-        tools:text="sydney" />
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="left">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/ivProfileImage"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            tools:text="sydney" />
+
+        <ImageButton
+            android:id="@+id/ibMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ufi_more" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="centerCrop"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/tvDescription"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textColor="@color/white"
-        tools:text="love these guys" />
+        android:layout_height="50dp">
+
+        <CheckBox
+            android:id="@+id/ivHeart"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"
+            android:button="@drawable/ib_heart"
+            android:checked="false"
+            app:buttonTint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/ivComment"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="-15dp"
+            android:layout_toEndOf="@id/ivHeart"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ufi_comment" />
+
+        <ImageButton
+            android:id="@+id/ivDirectPost"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/ivComment"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/direct" />
+
+        <CheckBox
+            android:id="@+id/ivSave"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="-20dp"
+            android:background="@android:color/transparent"
+            android:button="@drawable/ib_save"
+            android:checked="false"
+            app:buttonTint="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvUserComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:text="sydney" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@id/tvUserComment"
+            android:textColor="@color/white"
+            tools:text="love these guys" />
+    </RelativeLayout>
+
 </LinearLayout>

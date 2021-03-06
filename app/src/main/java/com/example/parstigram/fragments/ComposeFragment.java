@@ -21,19 +21,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.parstigram.LoginActivity;
-import com.example.parstigram.MainActivity;
 import com.example.parstigram.Post;
 import com.example.parstigram.R;
 import com.parse.ParseFile;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.io.File;
 
 import static android.app.Activity.RESULT_OK;
+import static com.parse.Parse.getApplicationContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,7 +45,7 @@ public class ComposeFragment extends Fragment {
     private EditText etDescription;
     private Button btnCaptureImage;
     private ImageView ivPostImage;
-    private Button btnSubmit;
+    private Button btnPost;
     private Button btnLogout;
     private ProgressBar pbProgress;
     private File photoFile;
@@ -72,7 +72,7 @@ public class ComposeFragment extends Fragment {
         etDescription = view.findViewById(R.id.etDescription);
         btnCaptureImage = view.findViewById(R.id.btnCaptureImage);
         ivPostImage = view.findViewById(R.id.ivPostImage);
-        btnSubmit = view.findViewById(R.id.btnSubmit);
+        btnPost = view.findViewById(R.id.btnPost);
         btnLogout = view.findViewById(R.id.btnLogout);
         pbProgress = view.findViewById(R.id.pbProgress);
 
@@ -81,15 +81,16 @@ public class ComposeFragment extends Fragment {
         });
 
         //queryPosts();
-        btnSubmit.setOnClickListener(v -> {
+        btnPost.setOnClickListener(v -> {
             String description = etDescription.getText().toString();
 
             if(description.isEmpty()) {
-                Toast.makeText(getContext(), "Description cannot be empty", Toast.LENGTH_SHORT).show();
+                displayToast("Description cannot be empty");
                 return;
             }
             if(photoFile == null || ivPostImage.getDrawable() == null) {
-                Toast.makeText(getContext(), "There is no image!", Toast.LENGTH_SHORT).show();
+                displayToast("There is no image!");
+                return;
             }
 
             pbProgress.setVisibility(ProgressBar.VISIBLE);
@@ -103,9 +104,8 @@ public class ComposeFragment extends Fragment {
             ParseUser currentUser = ParseUser.getCurrentUser();
             if(currentUser == null) {
                 goLoginActivity();
-                Toast.makeText(getContext(), "Logged out!", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getContext(), "Error logging out!", Toast.LENGTH_SHORT).show();
+                displayToast("Error logging out");
             }
         });
     }
@@ -147,7 +147,7 @@ public class ComposeFragment extends Fragment {
                 // Load the taken image into a preview
                 ivPostImage.setImageBitmap(takenImage);
             } else { // Result was a failure
-                Toast.makeText(getContext(), "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+                displayToast("Picture wasn't taken!");
             }
         }
     }
@@ -176,12 +176,26 @@ public class ComposeFragment extends Fragment {
         post.saveInBackground(e -> {
             if (e != null) {
                 Log.e(TAG, "Error while saving", e);
-                Toast.makeText(getContext(), "Error while saving!", Toast.LENGTH_SHORT).show();
+                displayToast("Error while saving!");
             }
 
             Log.i(TAG, "Post was saved successfully!");
             etDescription.setText("");
             ivPostImage.setImageResource(0);
         });
+    }
+
+    private void displayToast(String message) {
+        // Inflate toast XML layout
+        View layout = getLayoutInflater().inflate(R.layout.toast,
+                (ViewGroup) getActivity().findViewById(R.id.toast_layout_root));
+
+        // Fill in the message into the textview
+        TextView text = (TextView) layout.findViewById(R.id.text);
+        text.setText(message);
+
+        // Construct the toast, set the view and display
+        Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

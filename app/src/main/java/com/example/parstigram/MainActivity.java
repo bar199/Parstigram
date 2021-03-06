@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.parstigram.fragments.ComposeFragment;
 import com.example.parstigram.fragments.PostsFragment;
+import com.example.parstigram.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.ParseFile;
 import com.parse.ParseQuery;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.action_profile:
                     default:
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
